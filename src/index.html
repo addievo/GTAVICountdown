@@ -18,6 +18,7 @@
       color: white; /* Text color for visibility */
       text-align: center; /* Align text in the center */
       font-family: 'Chalet', Arial, sans-serif;
+      color: #9C1A1C;
     }
     .container {
       display: flex;
@@ -38,24 +39,7 @@
   </style>
   <script>
     function startTimer() {
-      // Target event time in UTC
-      var eventTime = new Date(Date.UTC(2023, 11, 5, 14, 0, 0));
-      var timer = document.getElementById('timer');
-
-      var interval = setInterval(function() {
-        var currentTime = new Date().getTime();
-        var distance = eventTime - currentTime;
-        if (distance < 0) {
-          clearInterval(interval);
-          timer.innerText = "The trailer has launched!";
-          return;
-        }
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        timer.innerText = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      }, 1000);
+        timer.innerText = 0 + "d " + 0 + "h " + 0 + "m " + 0 + "s ";
     }
 
   </script>
@@ -64,6 +48,12 @@
 <div class="container">
   <img src="../static/images/gta.png" alt="Trailer">
   <div id="timer"></div>
+  <div>
+    TRAILER IS OUT!
+  </div>
+  <div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QdBZY2fkU-0?si=eb_aBkRtHgwBGDL3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
 </div>
 </body>
 </html>
