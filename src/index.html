@@ -28,31 +28,50 @@
       height: 100%;
     }
     img {
-      max-width: 95%;
-      max-height: 95%;
+      max-width: 90%;
+      max-height: 90%;
       margin-bottom: 25px;
     }
     #timer {
       bottom: 20vh;
       font-size: 5em;
     }
+    #title{
+     font-size: 5em;
+    }
   </style>
   <script>
     function startTimer() {
-        timer.innerText = 0 + "d " + 0 + "h " + 0 + "m " + 0 + "s ";
-    }
+      var countDownDate = new Date("Sep 17, 2025 00:00:00").getTime();
 
+      var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("timer").innerText = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("timer").innerText = "EXPIRED";
+        }
+      }, 1000);
+    }
   </script>
 </head>
 <body onload="startTimer()">
 <div class="container">
   <img src="../static/images/gta.png" alt="Trailer">
+  <div id="title">Prediction to Release</div> <!-- Title added here -->
   <div id="timer"></div>
   <div>
-    TRAILER IS OUT!
   </div>
   <div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/QdBZY2fkU-0?si=eb_aBkRtHgwBGDL3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>
 </body>
